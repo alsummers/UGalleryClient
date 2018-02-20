@@ -30,7 +30,7 @@ class Login extends Component {
                 'Content-Type': 'application/json'
               })
         }).then(
-            (response) => response.json()
+            (res) => res.json()
         ).then((data) => {
             this.props.setToken(data.sessionToken)
 
