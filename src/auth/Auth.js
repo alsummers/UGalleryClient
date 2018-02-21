@@ -6,14 +6,18 @@ import Login from './Login';
 
 const Auth = (props) => {
     return (
-        <Container className="auth-container">
+        <Container className="auth-container justify-content-center" >
             <Row>
-                <Col md="6">
+                <Col></Col>
+                <Col lg="5">
+                <Row className="signup-container justify-content-center">
                     <Signup setToken={props.setToken}/>
-                </Col>
-                <Col md="6" className="login-col">
+                </Row>
+                <Row className="login-container justify-content-center" >
                     <Login setToken={props.setToken}/>
+                </Row>
                 </Col>
+                <Col></Col>
             </Row>
         </Container>
     )

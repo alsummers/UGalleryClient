@@ -1,0 +1,25 @@
+.Header {
+    background-color: lightslategrey;
+    text-align: center;
+    height: 10rem;
+    background-image: url('https://www.nationalgallery.ie/sites/default/files/styles/content_hero/public/2017-04/w1500-Caravaggio-Taking-Christ.jpg?itok=9kKcy-bm');
+    overflow:hidden;
+    background-position-y: 25%;
+    background-position-x: 50%;
+
+
+}
+.overlay{
+    padding-top: 3rem;
+    background-color: darkslategrey;
+    height: 15rem;
+    opacity: .9;
+
+}
+.App-title{
+    font-size: 5rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    bottom: 0;
+    margin-top: -1rem;
+}

@@ -1,0 +1,17 @@
+.card-content{
+    border: 2px solid lightslategray;
+    border-radius: .5rem;
+    margin: .6rem;
+    padding: .4rem;
+}
+.art-image{
+    max-width: 100%;
+    max-height: 100%;
+}
+.title{
+    font-style: italic 
+}
+.information{
+    list-style-type: none;
+    padding: 0
+}

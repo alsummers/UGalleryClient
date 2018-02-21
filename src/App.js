@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Auth from './auth/Auth';
 import SiteBar from './home/Navbar';
 import Splash from './home/Splash';
+import Header from './home/Header'
 import {
   BrowserRouter as Router,
   Route
@@ -58,12 +59,15 @@ class App extends Component {
 
   render() {
     return (
+      <div>
+      <Header />
       <Router>
         <div>
           <SiteBar clickLogout={this.logout}/>
           {this.protectedViews()}
         </div>
       </Router>
+      </div>
 
     );
   }

@@ -3,12 +3,12 @@ import {
     Collapse,
     Navbar,
     NavbarToggler,
-    NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
     Button
 } from 'reactstrap';
+import {routes} from './_routes';
+import {Link, Route} from 'react-router-dom'
 
 class SiteBar extends React.Component {
     constructor(props) {
@@ -29,8 +29,8 @@ class SiteBar extends React.Component {
     render() {
         return (
             <div>
+            <div>
                 <Navbar color="faded"  light expand="md">
-                    <NavbarBrand href="/">Sample Auth App</NavbarBrand>
                     <NavbarToggler onClick={this.props.loggout} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
@@ -38,11 +38,21 @@ class SiteBar extends React.Component {
                                 <Button onClick={() => this.props.clickLogout()}>Logout</Button>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="https://github.com/">Github</NavLink>
+                                <Button><Link to="/museums">Museums</Link></Button>
                             </NavItem>
                         </Nav>
                     </Collapse>
                 </Navbar>
+            </div>
+            <div className="navbar-route">
+            {routes.map((route, index) => (
+                <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                component={route.main} />
+            ))}
+            </div>
             </div>
         );
     }

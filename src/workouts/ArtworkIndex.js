@@ -1,7 +1,7 @@
 import React from 'react';
-import WorkoutCreate from './WorkoutCreate';
-import { Container, Row, Col } from 'reactstrap';
-import WorkoutsTable from './WorkoutsTable';
+import ArtworkSearch from './ArtworkSearch';
+import { Container, Row, } from 'reactstrap';
+import ArtworkFaves from './ArtworkFaves';
 
 // this works with the current workout log server, if there server is on a differnt port, they need to change the respective lines for fetch
 
@@ -10,20 +10,20 @@ class WorkoutIndex extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            workouts: []
+            artworks: []
         }
 
-        this.fetchWorkouts = this.fetchWorkouts.bind(this);
-        this.updateWorkoutsArray = this.updateWorkoutsArray.bind(this);
+        this.fetchArtworks = this.fetchArtworks.bind(this);
+        this.updateArtworksArray = this.updateArtworksArray.bind(this);
         this.workoutDelete = this.workoutDelete.bind(this);
     }
 
     componentWillMount(){
-        this.fetchWorkouts()
+        this.fetchArtworks()
     }
 
-    fetchWorkouts(){
-        fetch("http://localhost:3000/api/log", {
+    fetchArtworks(){
+        fetch("http://localhost:3000/api/", {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -32,16 +32,16 @@ class WorkoutIndex extends React.Component {
         })
         .then((res) => res.json())
         .then((logData) => {
-            return this.setState({workouts: logData})
+            return this.setState({artworks: logData})
         })
     }
 
-    updateWorkoutsArray(){
-        this.fetchWorkouts()
+    updateArtworksArray(){
+        this.fetchArtworks()
     }
 
     workoutDelete(event){
-        fetch("http://localhost:3000/api/log", {
+        fetch("http://localhost:3000/api/", {
             method: 'DELETE',
             body: JSON.stringify({log: {id:event.target.id}}),
             headers: new Headers({
@@ -49,21 +49,20 @@ class WorkoutIndex extends React.Component {
                 'Authorization': this.props.token
               })
         })
-        .then((res) => this.updateWorkoutsArray())
+        .then((res) => this.updateArtworksArray())
     }
 
     render() {
-        const workouts = this.state.workouts.length >= 1 ? <WorkoutsTable workouts={this.state.workouts} token={this.props.token} delete={this.workoutDelete}/> : <h2>Log a workout to see table</h2> 
+        const artworks = this.state.artworks.length >= 1 ? <ArtworkFaves artworks={this.state.artworks} token={this.props.token} delete={this.workoutDelete}/> : <h4>Click to add to favorites</h4> 
 
         return (
             <Container>
             <Row>
-                <Col md="3">
-                    <WorkoutCreate token = {this.props.token} updateWorkoutsArray={this.updateWorkoutsArray}/>
-                </Col>
-                <Col md="9">
-                    {workouts}
-                </Col>
+                    <ArtworkSearch token = {this.props.token} updateArtworksArray={this.updateArtworksArray}/>
+                </Row>
+                <hr />
+                <Row>
+                    {artworks}
             </Row>
         </Container>
         )

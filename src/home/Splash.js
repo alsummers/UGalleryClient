@@ -1,12 +1,12 @@
 import React from 'react';
-import WorkoutIndex from '../workouts/WorkoutIndex';
+import ArtworkIndex from '../workouts/ArtworkIndex';
 
 class Splash extends React.Component{
 
     render(){
         return (
             <div>
-                <WorkoutIndex token={this.props.sessionToken}/>
+                <ArtworkIndex token={this.props.sessionToken}/>
             </div>
         )
     }
