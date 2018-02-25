@@ -1,7 +1,8 @@
 import React from 'react';
 import ArtworkSearch from './ArtworkSearch';
-import { Container, Row, } from 'reactstrap';
+import { Row, Col} from 'reactstrap';
 import ArtworkFaves from './ArtworkFaves';
+
 
 // this works with the current workout log server, if there server is on a differnt port, they need to change the respective lines for fetch
 
@@ -15,7 +16,7 @@ class WorkoutIndex extends React.Component {
 
         this.fetchArtworks = this.fetchArtworks.bind(this);
         this.updateArtworksArray = this.updateArtworksArray.bind(this);
-        this.workoutDelete = this.workoutDelete.bind(this);
+        this.artworkDelete = this.artworkDelete.bind(this);
     }
 
     componentWillMount(){
@@ -23,7 +24,7 @@ class WorkoutIndex extends React.Component {
     }
 
     fetchArtworks(){
-        fetch("http://localhost:3000/api/", {
+        fetch("http://localhost:3000/api/UserArtwork", {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -40,10 +41,10 @@ class WorkoutIndex extends React.Component {
         this.fetchArtworks()
     }
 
-    workoutDelete(event){
-        fetch("http://localhost:3000/api/", {
+    artworkDelete(event){
+        fetch("http://localhost:3000/api/UserArtwork", {
             method: 'DELETE',
-            body: JSON.stringify({log: {id:event.target.id}}),
+            body: JSON.stringify({artworks: {id:event.target.id}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': this.props.token
@@ -53,18 +54,22 @@ class WorkoutIndex extends React.Component {
     }
 
     render() {
-        const artworks = this.state.artworks.length >= 1 ? <ArtworkFaves artworks={this.state.artworks} token={this.props.token} delete={this.workoutDelete}/> : <h4>Click to add to favorites</h4> 
+        const artworks = this.state.artworks.length >= 1 ? <ArtworkFaves artworks={this.state.artworks} token={this.props.token} delete={this.artworkDelete}/> : <p>Click to add to your gallery</p> 
 
         return (
-            <Container>
-            <Row>
-                    <ArtworkSearch token = {this.props.token} updateArtworksArray={this.updateArtworksArray}/>
-                </Row>
-                <hr />
                 <Row>
-                    {artworks}
+                <Col lg="3" className="faves">
+                {artworks}
+                    
+                </Col>
+                <Col></Col>
+
+                <Col lg="5">
+                <ArtworkSearch token = {this.props.token} updateArtworksArray={this.updateArtworksArray} />
+                </Col>
+                <Col>
+                </Col>
             </Row>
-        </Container>
         )
     }
 }

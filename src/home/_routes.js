@@ -1,5 +1,6 @@
 import React from 'react';
-import LocationPage from '../workouts/LocationIndex'
+import LocationPage from '../workouts/LocationSearch'
+
 
 
 export const routes = [
@@ -8,5 +9,6 @@ export const routes = [
         exact: true,
         main: () => <LocationPage />
     },
+    
 
 ]

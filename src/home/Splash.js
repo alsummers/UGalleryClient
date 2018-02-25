@@ -1,8 +1,9 @@
 import React from 'react';
 import ArtworkIndex from '../workouts/ArtworkIndex';
 
-class Splash extends React.Component{
 
+
+class Splash extends React.Component{
     render(){
         return (
             <div>

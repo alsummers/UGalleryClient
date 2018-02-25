@@ -1,11 +1,13 @@
 import React from 'react';
 import './artwork.css'
-import {Col, Row} from 'reactstrap'
-const ArtworkResults = ({results}) => {
+import {Col, Button, Row} from 'reactstrap'
 
+
+const ArtworkResults = ({results, handleSubmit}) => {
+    
 
     const resultsFormatted = results.map((element, index) =>
-        <div className="card-content" key={index}>
+        <div className="card-content" key={index} onClick={this.handleSubmit} id="card">
             <Row>
                 <Col md="5">
                 <img src={results[index].url} className="art-image" alt="art" />
@@ -20,6 +22,7 @@ const ArtworkResults = ({results}) => {
                 </ul>
                 </Col>
             </Row>
+            <Button onClick={event => handleSubmit(event, results[index].id)}>Save</Button>
         </div>
         );
     return (

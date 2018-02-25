@@ -16,6 +16,7 @@ class ArtworkSearch extends React.Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleKeyUp = this.handleKeyUp.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
@@ -23,13 +24,29 @@ class ArtworkSearch extends React.Component {
             [event.target.results]: event.target.value
         })
     }
+    handleSubmit(event, id) {
+        event.preventDefault();
 
+        fetch("http://localhost:3000/api/UserArtwork", {
+            method: 'POST',
+            body: JSON.stringify({ id: id }),
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': this.props.token
+            })
+        })
+            .then((res) => res.json())
+            .then((logData) => {
+                this.props.updateArtworksArray()
+                console.log(logData)
+            })
+    }
 
     handleKeyUp() {
         document.getElementById('results').className = "artworkResults";
             let val = document.getElementById('searchInput').value;
 
-            if (val === '') {
+            if (val === "") {
                 document.getElementById('results').className = 'noDisplay';
             }
             fetch('http://localhost:3000/api/artwork', {
@@ -76,7 +93,7 @@ class ArtworkSearch extends React.Component {
                         <Input onKeyUp={this.handleKeyUp} onKeyDown={this.handleKeyUp} id="searchInput" type="text" name="result" placeholder="ex: Rembrandt" onChange={this.handleChange}  />
                     </FormGroup>
                     <FormGroup>
-                        <ArtworkResults results={this.state.results} />
+                        <ArtworkResults results={this.state.results} handleSubmit={this.handleSubmit} />
                     </FormGroup>
                 </Form>
             </div>

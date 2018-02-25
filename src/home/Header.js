@@ -7,7 +7,7 @@ class Header extends Component {
         <div className="Header">
         <div className="overlay">
         <header className="App-header">
-          <h1 className="App-title">YouGallery</h1>
+          <h1 className="App-title">UGallery</h1>
         </header>
         </div>
         </div>

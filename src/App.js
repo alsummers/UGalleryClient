@@ -12,7 +12,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      sessionToken: ''
+      sessionToken: '',
+      textValue: ""
     }
 
     this.setSessionState = this.setSessionState.bind(this);
@@ -31,12 +32,14 @@ class App extends Component {
 
     if (token && !this.state.sessionToken) {
       this.setState({ sessionToken: token });
+
     }
   }
 
   logout(){
     this.setState({ sessionToken: '' });
     localStorage.removeItem('token');
+
   }
 
   protectedViews() {

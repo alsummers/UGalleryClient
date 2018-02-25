@@ -1,33 +1,24 @@
 import React from 'react';
-import { Table, Button } from 'reactstrap';
+import { Button, Row, Col } from 'reactstrap';
 
 
 const ArtworkFaves = (props) => {
-
+    var ArtworksRemapped = props.artworks.map((artwork, id) => {
+        return (
+            <div key={id} className="fav-content" onClick={props.delete}>
+            <Row>
+                <Col>
+                <img src={artwork.url} alt="fav" className="art-image"/>
+                <Button id={artwork.id} onClick={props.delete} color="light">X</Button>
+                </Col>
+            </Row>
+            </div>
+        )
+    })
     return (
-        <div>
-            <h3>Favorites</h3>
-            <hr />
-            <Table hover striped>
-                <thead>
-                </thead>
-                <tbody>
-                    {
-                        props.artworks.map((artwork, id) => {
-                            return (
-                                <tr key={id}>
-                                    <th scope="row">{artwork.id}</th>
-                                    <td>{artwork.title}</td>
-                                    <td>{artwork.name}</td>
-                                    <td>{artwork.year}</td>
-                                    <td><Button id={artwork.id} onClick={props.delete} color="danger">Delete</Button></td>
-                                </tr>
-                            )
-                        })
-                    }
-                </tbody>
-            </Table>
-        </div>
+        <ul id="artfaves">
+        {ArtworksRemapped}
+        </ul>
     );
 }
 
