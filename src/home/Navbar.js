@@ -28,7 +28,7 @@ class SiteBar extends React.Component {
 
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <Button color="light" onClick={() => this.props.clickLogout()}>Login/Logout</Button>
+                                <Button color="light" onClick={() => this.props.clickLogout()}>{this.props.isLogin ? 'Logout' : 'Login'}</Button>
                             </NavItem>
                            
                         </Nav>

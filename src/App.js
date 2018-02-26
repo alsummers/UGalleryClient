@@ -8,12 +8,13 @@ import {
   Route
 } from 'react-router-dom';
 
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
       sessionToken: '',
-      textValue: ""
+      isLogin: false,
     }
 
     this.setSessionState = this.setSessionState.bind(this);
@@ -23,7 +24,7 @@ class App extends Component {
 
   setSessionState(token) {
     localStorage.setItem('token', token);
-    this.setState({ sessionToken: token });
+    this.setState({ sessionToken: token, isLogin: true });
 
   }
 
@@ -31,13 +32,13 @@ class App extends Component {
     const token = localStorage.getItem('token')
 
     if (token && !this.state.sessionToken) {
-      this.setState({ sessionToken: token });
+      this.setState({ sessionToken: token, isLogin: true });
 
     }
   }
 
   logout(){
-    this.setState({ sessionToken: '' });
+    this.setState({ sessionToken: '' , isLogin: false});
     localStorage.removeItem('token');
 
   }
@@ -46,9 +47,11 @@ class App extends Component {
 
     if (this.state.sessionToken === localStorage.getItem('token')) {
       return (
+
         <Route path='/' exact={true}>
           <Splash sessionToken={this.state.sessionToken} />
         </Route>
+        
       )
     } else {
       return (
@@ -66,7 +69,7 @@ class App extends Component {
       <Header />
       <Router>
         <div>
-          <SiteBar clickLogout={this.logout}/>
+          <SiteBar clickLogout={this.logout} isLogin={this.state.isLogin}/>
           {this.protectedViews()}
         </div>
       </Router>
