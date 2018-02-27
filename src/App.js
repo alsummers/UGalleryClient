@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 
 
+
 class App extends Component {
   constructor() {
     super();
@@ -47,7 +48,7 @@ class App extends Component {
     if (this.state.sessionToken === localStorage.getItem('token')) {
       return (
 
-        <Route path='/' exact={true}>
+        <Route path='/splash' exact={true}>
         <SiteBar sessionToken={this.state.sessionToken} clickLogout={this.logout} isLogin={this.state.isLogin}/>
         </Route>
         

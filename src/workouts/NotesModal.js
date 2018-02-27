@@ -52,7 +52,7 @@ class NotesModal extends React.Component {
       console.log(this.props)
     return (
       <div>
-        <Button color="secondary" onClick={this.toggle}>Notes</Button>
+        <Button color="secondary" onClick={this.toggle} className="notesButton">Notes</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Artwork Notes</ModalHeader>
           <ModalBody>

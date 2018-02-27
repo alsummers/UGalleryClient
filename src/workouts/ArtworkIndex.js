@@ -63,13 +63,14 @@ class WorkoutIndex extends React.Component {
 
         return (
                 <Row>
+                    <Col></Col>
                 <Col lg="3" className="faves">
                 {artworks}
                     
                 </Col>
                 <Col></Col>
 
-                <Col lg="5">
+                <Col lg="4">
                 <ArtworkSearch token = {this.props.token} updateArtworksArray={this.updateArtworksArray} />
                 </Col>
                 <Col>

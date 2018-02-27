@@ -21,10 +21,22 @@
 }
 .faves{
     background-color: lightslategrey;
+    border: 3px double white;
+    border-radius: 1rem;
 }
 .fav-content{
     border: 2px solid white;
     border-radius: .5rem;
     margin: .6rem;
     padding: .4rem;
+}
+.delete{
+    padding: .2rem;
+    margin: 1rem;
+    margin-top: 0
+}
+.notesButton{
+    padding: .2rem;
+    margin: 1rem;
+    margin-top: 0;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, FormGroup, Label, Input } from 'reactstrap';
+import {Form, FormGroup, Label, Input, Row, Col} from 'reactstrap';
 import LocationResults from './LocationIndex'
 
 
@@ -69,6 +69,8 @@ class LocationSearch extends React.Component {
     render() {
         return (
             <div>
+                <Row className="justify-content-center">
+                <Col lg="5" className="justify-content-center">
                 <h3>Find a Museum</h3>
                 <hr />
                 <Form onSubmit={this.handleSubmit} >
@@ -81,6 +83,8 @@ class LocationSearch extends React.Component {
                         <LocationResults museums={this.state.museums} />
                     </FormGroup>
                 </Form>
+                </Col>
+                </Row>
             </div>
         )
     }

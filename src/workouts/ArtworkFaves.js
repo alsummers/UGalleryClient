@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Row, Col } from 'reactstrap';
 import NotesModal from './NotesModal';
+import './artwork.css'
 
 
 const ArtworkFaves = (props) => {
@@ -21,18 +22,23 @@ const ArtworkFaves = (props) => {
         return (
                 <Col xs="9" key={id}>
             <div className="fav-content">
+            <Row className="justify-content-center">
                 <img src={artwork.url} alt="fav" className="art-image"/>
+            </Row>
                 <hr/>
-                <Row><NotesModal artworkid={artwork.id} /><Button id={artwork.id} onClick={props.delete} color="secondary">X</Button></Row>
-                {/* <Button onClick={() => openModal(artwork.id)}>U</Button> */}
+                <Row className="justify-content-center"><NotesModal artworkid={artwork.id} /><Button className="delete" id={artwork.id} onClick={props.delete} color="secondary">X</Button></Row>
+                <Row className="justify-content-center">
                 {artwork.notes}
+                </Row>
             </div>
                 </Col>
         )
     })
     return (
         <Col id="artfaves">
+        <Row className="justify-content-center">
         {ArtworksRemapped}
+        </Row>
         </Col>
     );
 }

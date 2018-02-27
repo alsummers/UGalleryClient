@@ -29,13 +29,13 @@ class SiteBar extends React.Component {
 
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <Button color="light" onClick={() => this.props.clickLogout()}>{this.props.isLogin ? 'Logout' : 'Login'}</Button>
+                                <Button color="light" className="nav-button" onClick={() => this.props.clickLogout()}>{this.props.isLogin ? 'Logout' : 'Login'}</Button>
                             </NavItem>
                             <NavItem>
-                                <Link to='/splash'>Gallery</Link>
+                                <Link to='/'><Button className="nav-button" color="light">Gallery</Button></Link>
                             </NavItem>
                             <NavItem>
-                                <Link to='/museums'>Musuem</Link>
+                                <Link to='/museums'><Button className="nav-button" color="light">Musuem</Button></Link>
                             </NavItem>
                            
                         </Nav>

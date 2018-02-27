@@ -11,7 +11,7 @@ export const routes = [
         main: () => <LocationPage />
     },
     {
-        path: '/splash',
+        path: '/',
         exact: true,
         main: () => <Splash sessionToken={this.sessionToken}/>
     }
