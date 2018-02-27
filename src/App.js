@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Auth from './auth/Auth';
 import SiteBar from './home/Navbar';
-import Splash from './home/Splash';
 import Header from './home/Header'
 import {
   BrowserRouter as Router,
@@ -49,7 +48,7 @@ class App extends Component {
       return (
 
         <Route path='/' exact={true}>
-          <Splash sessionToken={this.state.sessionToken} />
+        <SiteBar sessionToken={this.state.sessionToken} clickLogout={this.logout} isLogin={this.state.isLogin}/>
         </Route>
         
       )
@@ -69,7 +68,7 @@ class App extends Component {
       <Header />
       <Router>
         <div>
-          <SiteBar clickLogout={this.logout} isLogin={this.state.isLogin}/>
+          {/* <SiteBar clickLogout={this.logout} isLogin={this.state.isLogin}/> */}
           {this.protectedViews()}
         </div>
       </Router>

@@ -32,7 +32,7 @@ class ArtworkSearch extends React.Component {
             body: JSON.stringify({ id: id }),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': this.props.token
+                'Authorization': localStorage.getItem('token')
             })
         })
             .then((res) => res.json())
@@ -80,6 +80,7 @@ class ArtworkSearch extends React.Component {
                 console.log('Fetch Error :', err);
             })
     }
+
 
     render() {
         return (

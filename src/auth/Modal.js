@@ -3,7 +3,7 @@ import React from 'react';
 import Login from './Login';
 import Signup from './Signup';
 
-const Modal = props => {
+const Modal = (props) => {
     switch (props.currentModal){
         case 'LOG_IN':
         return <Login {...props} />;
