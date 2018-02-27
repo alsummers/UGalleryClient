@@ -5,8 +5,8 @@ import {
     NavItem,
     Button
 } from 'reactstrap';
-import {routes} from './_routes';
-import {Route, Link} from 'react-router-dom'
+// import {routes} from './_routes';
+import {Link} from 'react-router-dom'
 import './home.css'
 
 class SiteBar extends React.Component {
@@ -42,7 +42,7 @@ class SiteBar extends React.Component {
 
                 </Navbar>
             </div>
-            <div className="navbar-route">
+            {/* <div className="navbar-route">
             {routes.map((route, index) => (
                 <Route
                 key={index}
@@ -50,7 +50,7 @@ class SiteBar extends React.Component {
                 exact={route.exact}
                 component={route.main} />
             ))}
-            </div>
+            </div> */}
             </div>
         );
     }

@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import Auth from './auth/Auth';
 import SiteBar from './home/Navbar';
+import Splash from './home/Splash';
+import LocationPage from './workouts/LocationSearch'
 import Header from './home/Header'
 import {
   BrowserRouter as Router,
-  Route
+  Route,
+  Switch
 } from 'react-router-dom';
 
 
@@ -47,10 +50,14 @@ class App extends Component {
 
     if (this.state.sessionToken === localStorage.getItem('token')) {
       return (
-
-        <Route path='/splash' exact={true}>
-        <SiteBar sessionToken={this.state.sessionToken} clickLogout={this.logout} isLogin={this.state.isLogin}/>
+        <Switch>
+        <Route path='/' exact={true}>
+        <Splash sessionToken={this.state.sessionToken}/>
         </Route>
+        <Route>
+          <LocationPage sessionToken={this.state.sessionToken}/>
+          </Route>
+        </Switch>
         
       )
     } else {
@@ -69,7 +76,7 @@ class App extends Component {
       <Header />
       <Router>
         <div>
-          {/* <SiteBar clickLogout={this.logout} isLogin={this.state.isLogin}/> */}
+          <SiteBar clickLogout={this.logout} isLogin={this.state.isLogin}/>
           {this.protectedViews()}
         </div>
       </Router>
