@@ -38,7 +38,7 @@ class ArtworkSearch extends React.Component {
             .then((res) => res.json())
             .then((logData) => {
                 this.props.updateArtworksArray()
-                console.log(logData)
+
             })
     }
 
@@ -56,8 +56,7 @@ class ArtworkSearch extends React.Component {
                 })
             })
             .then(response => {
-                console.log(response)
-                console.log(this.state)
+
                 if (response.status !== 200) {
                     console.log('Error: ' + response.status);
                     return;
