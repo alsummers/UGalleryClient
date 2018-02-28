@@ -64,7 +64,7 @@ class WorkoutIndex extends React.Component {
         return (
                 <Row>
                     <Col></Col>
-                <Col lg="3" className="faves">
+                <Col lg="4" className="faves">
                 {artworks}
                     
                 </Col>
