@@ -61,7 +61,7 @@ class Signup extends Component {
                     </FormGroup>
                     <FormGroup>
                         <Label for="password">Password</Label>
-                        <Input id="su_password" type="password" name="password" placeholder="password" onChange={this.handleChange} />
+                        <Input id="su_password" type="password" name="password" placeholder="password" required minLength="6" onChange={this.handleChange} />
                     </FormGroup>
                     <FormGroup>
                         <Label for="email">Email</Label>
