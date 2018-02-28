@@ -27,7 +27,7 @@ class ArtworkSearch extends React.Component {
     handleSubmit(event, id) {
         event.preventDefault();
 
-        fetch("http://localhost:3000/api/UserArtwork", {
+        fetch("https://as-gallery-server.herokuapp.com/api/UserArtwork", {
             method: 'POST',
             body: JSON.stringify({ id: id }),
             headers: new Headers({
@@ -49,7 +49,7 @@ class ArtworkSearch extends React.Component {
             if (val === "") {
                 document.getElementById('results').className = 'noDisplay';
             }
-            fetch('http://localhost:3000/api/artwork', {
+            fetch('https://as-gallery-server.herokuapp.com/api/artwork', {
                 headers: new Headers ({
                     'Content-Type': 'application/json',
                     'Authorization': localStorage.getItem('token')

@@ -26,7 +26,7 @@ class WorkoutIndex extends React.Component {
     }
 
     fetchArtworks(){
-        fetch("http://localhost:3000/api/UserArtwork", {
+        fetch("https://as-gallery-server.herokuapp.com/api/UserArtwork", {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ class WorkoutIndex extends React.Component {
     }
 
     artworkDelete(event){
-        fetch("http://localhost:3000/api/UserArtwork", {
+        fetch("https://as-gallery-server.herokuapp.com/api/UserArtwork", {
             method: 'DELETE',
             body: JSON.stringify({artworks: {id:event.target.id}}),
             headers: new Headers({

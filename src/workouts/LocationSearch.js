@@ -32,7 +32,7 @@ class LocationSearch extends React.Component {
             if (val === '') {
                 document.getElementById('results').className = 'noDisplay';
             }
-            fetch('http://localhost:3000/api/museum', {
+            fetch('https://as-gallery-server.herokuapp.com/api/museum', {
                 headers: new Headers ({
                     'Content-Type': 'application/json',
                     'Authorization': localStorage.getItem('token')

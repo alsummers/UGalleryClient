@@ -24,7 +24,7 @@ class Signup extends Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        fetch("http://localhost:3000/api/user", {
+        fetch("https://as-gallery-server.herokuapp.com/api/user", {
             method: 'POST',
             body: JSON.stringify({user:this.state}),
             headers: new Headers({

@@ -32,7 +32,7 @@ class NotesModal extends React.Component {
   }
   handleSubmit(event){
       
-      fetch(`http://localhost:3000/api/UserArtwork/${event.target.id}`, {
+      fetch(`https://as-gallery-server.herokuapp.com/api/UserArtwork/${event.target.id}`, {
         method: 'PUT',
         body: JSON.stringify({UserArtwork: {notes: this.state.notes}}),
         headers: new Headers({
