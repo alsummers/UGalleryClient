@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Auth from './auth/Auth';
 import SiteBar from './home/Navbar';
 import Splash from './home/Splash';
-import LocationPage from './workouts/LocationSearch'
+import LocationPage from './screens/LocationSearch'
 import Header from './home/Header'
 import {
   BrowserRouter as Router,

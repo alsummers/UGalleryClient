@@ -1,5 +1,5 @@
 import React from 'react';
-import ArtworkIndex from '../workouts/ArtworkIndex';
+import ArtworkIndex from '../screens/ArtworkIndex';
 
 
 
